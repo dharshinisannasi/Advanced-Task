@@ -1,0 +1,26 @@
+# Environment configuration
+.env
+.env.*
+
+# Dependencies
+/vendor/
+
+# Writable runtime files
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/debugbar/*
+
+# Uploaded files
+/public/uploads/*
+/uploads/*
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
