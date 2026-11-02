@@ -134,6 +134,8 @@ Execute:
 ```bash
 php spark migrate
 ```
+<!-- if needed to create a new table using migration use this: php spark make:migration CreateEmployeesTable -->
+
 
 ### Step 7: Run Database Seeders
 
@@ -142,7 +144,7 @@ Execute the following command to run all configured seeders:
 ```bash
 php spark db:seed DatabaseSeeder
 ```
-
+<!-- if needed to create a new seeder use this: php spark make:seeder EmployeeSeeder (run this after the saving the file: php spark db:seed EmployeeSeeder) -->
 The project includes:
 
 - `CategorySeeder` — inserts Electronics and Clothing categories only if they do not already exist.
