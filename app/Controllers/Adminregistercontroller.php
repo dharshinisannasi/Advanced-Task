@@ -114,6 +114,7 @@
                 'profile_image'=> $photoname,
                 'updated_at' => date('Y-m-d H:i:s'),
                 'created_at' => date('Y-m-d H:i:s'),
+                'created_by' => session()->get('username')
             ];
 
             $result= $this->user_model->insertdataofuser($data);

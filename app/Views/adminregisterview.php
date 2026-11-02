@@ -41,19 +41,19 @@
         var __baseurl= "<?=base_url() ?>";
         function Register(){
             var fullname= $("#Fullname").val();
-            console.log(fullname);
+            //console.log(fullname);
             var username= $("#Username").val();
-            console.log(username);
+            //console.log(username);
             var email= $("#Emailaddress").val();
-            console.log(email);
+            //console.log(email);
             var mobilenumber= $("#Mobilenumber").val();
-            console.log(mobilenumber);
+            //console.log(mobilenumber);
             var password= $("#Password").val();
-            console.log(password);
+            //console.log(password);
             var confirmpassword= $("#Confirmpassword").val();
-            console.log(confirmpassword);
+           // console.log(confirmpassword);
             var photo = $("#Profilephoto")[0].files[0];
-            console.log(photo);
+            //console.log(photo);
             $("#fullnameerror").html("");
             $("#usernameerror").html("");
             $("#emailerror").html("");
