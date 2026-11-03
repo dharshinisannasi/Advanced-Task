@@ -215,4 +215,9 @@ class Productapi_model extends Model
             ]
         ];
     }
+
+    public function insertProduct($insertData)
+    {
+        return $this->insert($insertData);
+    }
 }

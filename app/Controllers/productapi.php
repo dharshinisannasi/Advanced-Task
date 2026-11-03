@@ -264,7 +264,7 @@ class Productapi extends BaseController
             'updated_at'    => $now
         ];
 
-        if (!$this->productApiModel->insert($insertData)) {
+        if (!$this->productApiModel->insertProduct($insertData)) {
             return $this->respond([
                 'status' => false,
                 'message' => 'Product insertion failed.',
