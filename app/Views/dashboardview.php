@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('viewpage/' . session()->get('id')) ?>">
+                        <a class="nav-link" href="<?= base_url('profilepage') ?>">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -165,7 +165,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('viewpage/' . session()->get('id')) ?>">
+                        <a class="nav-link" href="<?= base_url('profilepage') ?>">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>

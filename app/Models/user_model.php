@@ -6,7 +6,7 @@ use CodeIgniter\HTTP\RedirectResponse;
 class user_model extends Model
 {
     protected $table   = 'users';
- 
+    protected $primaryKey = 'id';
     public function __construct()
     {
         parent::__construct();

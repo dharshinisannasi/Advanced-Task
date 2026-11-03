@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="container col-4 m-5 mx-auto">
-            <h5 id="validuser" class="text-center text-danger"></h5>
+            <h5 id="validuser" class="text-center text-success"></h5>
             <h5 id="invaliduser" class="text-center text-danger"></h5>
             <h1 class="text-center text-primary">Login Page</h1>
             <label for="loginusername" class="form-label text-primary">Username</label>

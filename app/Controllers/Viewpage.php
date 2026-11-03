@@ -5,6 +5,8 @@ use App\Models\user_model;
 
 class Viewpage extends BaseController
 {
+    protected $user_model;
+
     public function __construct()
     {
         $this->user_model = new user_model();
@@ -12,7 +14,6 @@ class Viewpage extends BaseController
 
     public function index($id = null)
     {
-        // If ID is not passed, get the logged-in user's ID
         if ($id === null) {
             $id = session()->get('id');
         }
@@ -36,29 +37,67 @@ class Viewpage extends BaseController
 
         return view('viewpage', $data);
     }
-    
+
     public function updatephoto($id)
     {
         $file = $this->request->getFile('profileimage');
 
         if (!$file || !$file->isValid()) {
             return $this->response->setJSON([
-                'status' => false,
-                'message' => 'Please select a valid photo'
+                'status'  => false,
+                'message' => 'Please select a valid photo.'
             ]);
         }
 
+        // Allow only JPEG and PNG images
+        $mimeType = $file->getMimeType();
+
+        if (!in_array($mimeType, ['image/jpeg', 'image/png'])) {
+            return $this->response->setJSON([
+                'status'  => false,
+                'message' => 'Only JPG and PNG images are allowed.'
+            ]);
+        }
+
+        // Check file size: maximum 2 MB
+        if ($file->getSize() > 2 * 1024 * 1024) {
+            return $this->response->setJSON([
+                'status'  => false,
+                'message' => 'Image size must be 2 MB or less.'
+            ]);
+        }
+
+        $uploadPath = FCPATH . 'uploads';
+
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
         $newName = $file->getRandomName();
-        $file->move(FCPATH . 'uploads', $newName);
+
+        if (!$file->move($uploadPath, $newName)) {
+            return $this->response->setJSON([
+                'status'  => false,
+                'message' => 'Unable to upload the photo.'
+            ]);
+        }
+
         $data = [
             'profile_image' => $newName
         ];
 
-        $this->user_model->updateuser($data, $id);
+        $result = $this->user_model->updateuser($data, $id);
+
+        if (!$result) {
+            return $this->response->setJSON([
+                'status'  => false,
+                'message' => 'Photo could not be updated in the database.'
+            ]);
+        }
+
         return $this->response->setJSON([
             'status' => true,
-            'photo' => $newName
+            'photo'  => $newName
         ]);
     }
-    
 }

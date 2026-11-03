@@ -114,3 +114,6 @@ $routes->get(
 $routes->get('exportemployee', 'Employeemanagementcontroller::exportemployee');
 
 
+//profilepage
+$routes->get('profilepage', 'Profile::index');
+$routes->post('updateprofile', 'Profile::updateprofile');

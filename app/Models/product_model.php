@@ -230,10 +230,12 @@ class product_model extends Model
         $builder->where('role', 'Employee')
                 ->where('id', $id)
                 ->where('created_by', $username);
+                
         $query=$builder->update($data);
 
         return $query;
     }
+    
     //delete employee product
     public function deleteproduct($id,$username)
     {
