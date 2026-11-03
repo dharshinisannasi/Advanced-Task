@@ -259,4 +259,10 @@ class user_model extends Model
 
         return $builder->get()->getResultArray();
     }
+
+    //api
+    public function insertapitoken($data)
+    {
+        return $this->db->table('api_tokens')->insert($data);
+    }
 }

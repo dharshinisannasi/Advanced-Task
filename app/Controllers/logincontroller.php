@@ -54,10 +54,7 @@
             // Generate a secure API token
             $token = bin2hex(random_bytes(32));
 
-            // Store only the hashed token in the database
-            $db = \Config\Database::connect();
-
-            $db->table('api_tokens')->insert([
+            $this->user_model->insertapitoken([
                 'user_id'    => $result['id'],
                 'role'       => $result['role'],
                 'token_hash' => hash('sha256', $token),
@@ -74,3 +71,4 @@
             ]);
         }
     }
+                
