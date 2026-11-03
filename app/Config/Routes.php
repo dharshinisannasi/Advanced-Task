@@ -100,7 +100,7 @@ $routes->options('api/products/(:num)', static function () {
 $routes->options('api/products/filter-options', static function () {
     return service('response')->setStatusCode(204);
 });
-
+//exports
 $routes->get(
     'exportemployeeproducts',
     'Productemployeecontroller::exportemployeeproducts'
@@ -112,3 +112,5 @@ $routes->get(
 );
 
 $routes->get('exportemployee', 'Employeemanagementcontroller::exportemployee');
+
+
