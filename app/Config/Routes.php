@@ -97,6 +97,9 @@ $routes->options('api/products', static function () {
 $routes->options('api/products/(:num)', static function () {
     return service('response')->setStatusCode(204);
 });
+$routes->options('api/products/filter-options', static function () {
+    return service('response')->setStatusCode(204);
+});
 
 $routes->get(
     'exportemployeeproducts',
