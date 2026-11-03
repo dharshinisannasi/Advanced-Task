@@ -170,7 +170,7 @@ class Productapi_model extends Model
         $totalRecords = $builder->countAllResults(false);
 
         $page = max(1, (int) ($filters['page'] ?? 1));
-        $limit = (int) ($filters['limit'] ?? 10);
+        $limit = (int) ($filters['limit'] ?? 50);
 
         if (!in_array($limit, [5, 10, 20, 50], true)) {
             $limit = 10;
